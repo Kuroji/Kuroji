@@ -3,7 +3,7 @@ package xyz.astolfo.kuroji.objects
 import java.time.OffsetDateTime
 
 //TODO probably should crate a own class for unavailable guilds and first join / ready events?
-interface Guild : Identifiable, Nameable {
+interface Guild : Identifiable, Nameable, ChannelHolder, KurojiEntity {
     val icon: String
     val splash: String
     val owner: Boolean
@@ -34,8 +34,8 @@ interface Guild : Identifiable, Nameable {
     val memberCount: Long
     val voiceStates: Iterable<VoiceState>
 
-    interface Member {
-        val user: User
+    interface Member : KurojiEntity {
+        val user: User?
         val nick: String?
         val roles: Iterable<Long>
         val joinedAt: OffsetDateTime
@@ -44,6 +44,5 @@ interface Guild : Identifiable, Nameable {
     }
 
     val members: Iterable<Member>
-    val channels: Iterable<Channel>
     val presences: Iterable<PresenceUpdate>
 }

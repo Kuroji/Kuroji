@@ -1,6 +1,12 @@
 package xyz.astolfo.kuroji.objects
 
-interface DiscordEntity
+import xyz.astolfo.kuroji.KurojiShard
+
+interface KurojiEntity {
+    val kurojiShard: KurojiShard
+    val kuroji
+        get() = kurojiShard.kuroji
+}
 
 interface Nameable {
     var name: String
@@ -16,4 +22,17 @@ interface Positionable {
 
 interface Identifiable {
     val id: Long
+}
+
+interface ChannelHolder {
+    val channels: Iterable<Channel>
+        get() {
+            val list = mutableListOf<Channel>()
+            list.addAll(textChannels)
+            list.addAll(voiceChannels)
+            return list
+        }
+    val textChannels: Iterable<GuildTextChannel>
+    val categories: Iterable<GuildCategoryChannel>
+    val voiceChannels: Iterable<GuildVoiceChannel>
 }
