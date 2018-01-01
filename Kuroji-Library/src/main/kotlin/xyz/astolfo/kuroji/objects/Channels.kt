@@ -2,7 +2,7 @@ package xyz.astolfo.kuroji.objects
 
 import java.time.OffsetDateTime
 
-interface Channel : KurojiEntity, Identifiable {
+interface Channel : KurojiShardEntity, Identifiable {
     val type: ChannelType
 }
 

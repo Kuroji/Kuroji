@@ -1,4 +1,4 @@
 package xyz.astolfo.kuroji.objects
 
-interface Role : DiscordEntity, Nameable, Mentionable, Positionable,
+interface Role : KurojiShardEntity, Nameable, Mentionable, Positionable,
         Identifiable

@@ -1,6 +1,6 @@
 package xyz.astolfo.kuroji.objects
 
-interface Attachment : Identifiable {
+interface Attachment : Identifiable, KurojiShardEntity {
     val filename: String
     val size: Int
     val url: String

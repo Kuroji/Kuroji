@@ -1,34 +1,47 @@
 package xyz.astolfo.kuroji.objects
 
-interface Game {
+interface Game : KurojiShardEntity {
     val name: String
-    val type: Int
+    val type: GameType
     val url: String
-    val state: String
-    val sessionId: String
+    val state: String?
 
-    interface Party {
-        val size: Iterable<Int>
-        val id: String
+    interface Party : KurojiShardEntity {
+        val size: Int?
+        val max: Int?
+        val id: String?
     }
 
     val party: Party?
-    val flags: Int
-    val details: String
+    val details: String?
 
-    interface Assets {
-        val smallText: String
-        val largeText: String
-        val smallImage: Long
-        val largeImage: Long
+    interface Assets : KurojiShardEntity {
+        val key: String?
+        val text: String?
+        val url: String?
     }
 
-    val assets: Assets?
-    val applicationId: Long
+    val largeAssets: Assets?
+    val smallAssets: Assets?
+    val applicationId: Long?
 
-    interface Timestamps {
+    interface Timestamps : KurojiShardEntity {
         val start: Long
+        val end: Long
     }
 
     val timestamps: Timestamps?
+}
+
+enum class GameType constructor(val key: Int) {
+    DEFAULT(0),
+    STREAMING(1),
+    LISTENING(2),
+    WATCHING(3);
+
+    companion object {
+        fun fromKey(key: Int): GameType {
+            return values().firstOrNull { it.key == key } ?: DEFAULT
+        }
+    }
 }

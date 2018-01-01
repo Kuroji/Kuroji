@@ -1,11 +1,16 @@
 package xyz.astolfo.kuroji.objects
 
+import xyz.astolfo.kuroji.Kuroji
 import xyz.astolfo.kuroji.KurojiShard
 
-interface KurojiEntity {
+interface KurojiShardEntity : KurojiEntity {
     val kurojiShard: KurojiShard
-    val kuroji
+    override val kuroji
         get() = kurojiShard.kuroji
+}
+
+interface KurojiEntity {
+    val kuroji: Kuroji
 }
 
 interface Nameable {

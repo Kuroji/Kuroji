@@ -2,7 +2,7 @@ package xyz.astolfo.kuroji.objects
 
 import java.time.OffsetDateTime
 
-interface Message : DiscordEntity, Identifiable {
+interface Message : KurojiShardEntity, Identifiable {
     val channelId: Long
     val author: User
     val content: String

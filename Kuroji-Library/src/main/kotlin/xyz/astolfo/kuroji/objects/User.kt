@@ -1,6 +1,6 @@
 package xyz.astolfo.kuroji.objects
 
-interface User : Nameable, Mentionable, KurojiEntity {
+interface User : Nameable, Mentionable, KurojiShardEntity {
 
     val discriminator: String
     val avatar: String

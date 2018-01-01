@@ -1,6 +1,6 @@
 package xyz.astolfo.kuroji.objects
 
-interface Emoji : DiscordEntity, Nameable, Identifiable {
+interface Emoji : KurojiShardEntity, Nameable, Identifiable {
     val roles: Iterable<Long>
     val user: User?
     val requireColons: Boolean

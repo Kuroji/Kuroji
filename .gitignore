@@ -25,6 +25,7 @@ hs_err_pid*
 build/
 Kuroji-Library/.gradle/4.0/
 Kuroji-Library/.gradle/buildOutputCleanup/
+out/
 
 # General
 .DS_Store
